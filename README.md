@@ -6,6 +6,20 @@ Demo:
 - Website: https://arched-door.netlify.app/
 - Default password: `somepassword`
 
+| Login page | Content page
+|:----------:|:-------------:|
+| ![](./images/screenshot-1.png) | ![](./images/screenshot-2.png) |
+
+
+## Usage
+
+- `mdbook serve`
+
+- `export-tldraw.sh`
+  * Exports all `*.tldr` files to `*.tldr.svg`
+  * Uses https://github.com/kitschpatrol/tldraw-cli
+  * Assumes `npx` (from Node.js) to be present.
+
 
 ## Overview
 

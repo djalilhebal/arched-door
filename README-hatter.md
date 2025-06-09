@@ -112,7 +112,6 @@ See tests:
 
 ### Writing
 
-
 Options:
 
 - ~~GitBook~~
