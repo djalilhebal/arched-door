@@ -6,4 +6,4 @@ src = "content"
 [output.html]
 default-theme = "dark"
 preferred-dark-theme = "ayu"
-additional-js = ["book-custom-loader.js"]
+additional-js = ["load-custom-components.js", "load-analytics.js"]

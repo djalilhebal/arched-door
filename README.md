@@ -1,13 +1,14 @@
 # Arched Door (POC)
 
-**Arched Door** is a POC of how an internal documentation website could be made.
+**Arched Door** is a POC of how an internal documentation website could be made. \
+(Check [the original README](./README-hatter.md).)
 
-Demo:
+**Live demo**:
 - Website: https://arched-door.netlify.app/
 - Default password: `somepassword`
 
-| Login page | Content page
-|:----------:|:-------------:|
+| Login page                     | Content page                   |
+|:------------------------------:|:------------------------------:|
 | ![](./images/screenshot-1.png) | ![](./images/screenshot-2.png) |
 
 
@@ -17,7 +18,7 @@ Demo:
 
 - `export-tldraw.sh`
   * Exports all `*.tldr` files to `*.tldr.svg`
-  * Uses https://github.com/kitschpatrol/tldraw-cli
+  * Uses [tldraw-cli](https://github.com/kitschpatrol/tldraw-cli)
   * Assumes `npx` (from Node.js) to be present.
 
 
@@ -32,11 +33,13 @@ It's not about a specific tech, it's about the process:
 - Add auth.
 
 
-## Technologies
+## Technologies used
 
 - [mdBook](https://github.com/rust-lang/mdBook).
-    * Why? Simple and works perfectly.
-    * Supports plugins (inc. `pandoc`).
+    * Why?
+        + Simple and works perfectly.
+        + Supports plugins (inc. `pandoc`).
+    * Installation: `cargo install mdbook`
 
 - GitHub Actions
   * [x] [Quickstart for GitHub Actions | GitHub Docs](https://docs.github.com/en/actions/writing-workflows/quickstart)
@@ -75,17 +78,7 @@ Other options:
 
 - [ ] Brainiac Hatter (Alice in Wonderland)
 
-- [ ] Chickadee (bird, memory, able to remember specific things)
-
-- [ ] Secretarybird (bird, secretary)
-
 - [ ] Stellar Almanac (astronomy-related)
-
-- [ ] Red coral
-    * Its color looks cool.
-    * Red coral is used in Amazigh jewelry.
-
-- [x] Arched Door
 
 
 ## Technical details

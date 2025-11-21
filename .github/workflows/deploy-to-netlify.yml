@@ -14,25 +14,25 @@ jobs:
       - name: Install mdbook (precompiled)
         id: install_mdbook
         run: |
-          VERSION="v0.4.43"
+          MDBOOK_VERSION="0.5.1"
           ARCH="x86_64-unknown-linux-gnu"
-          URL="https://github.com/rust-lang/mdBook/releases/download/$VERSION/mdbook-$VERSION-$ARCH.tar.gz"
-          EXPECTED_SHA="49823b7968d737b865bdd559b6671baa8aa8ec5f"
-          FILE="mdbook"
+          EXPECTED_SHA256="5c746127707bd768ecfc2d7fb2374cc11d5ae653aea438e15eea3154a1a69f92"
+          URL="https://github.com/rust-lang/mdBook/releases/download/v$MDBOOK_VERSION/mdbook-v$MDBOOK_VERSION-$ARCH.tar.gz"
+          EXECUTABLE="mdbook"
 
           # Attempt to download and verify the precompiled binary
           echo "Downloading $URL..."
           if curl -fsSL "$URL" -o mdbook.tar.gz; then
-            echo "Verifying SHA-1 hash..."
-            ACTUAL_SHA=$(sha1sum mdbook.tar.gz | awk '{print $1}')
-            if [ "$ACTUAL_SHA" = "$EXPECTED_SHA" ]; then
-              echo "SHA-1 verified. Extracting..."
+            echo "Verifying its hash..."
+            ACTUAL_SHA=$(sha256sum mdbook.tar.gz | awk '{print $1}')
+            if [ "$ACTUAL_SHA" = "$EXPECTED_SHA256" ]; then
+              echo "Hash verified. Extracting..."
               tar -xzf mdbook.tar.gz
-              chmod +x $FILE
-              mv $FILE /usr/local/bin/
+              chmod +x $EXECUTABLE
+              mv $EXECUTABLE /usr/local/bin/
               echo "Precompiled mdbook installed successfully."
             else
-              echo "Hash mismatch! Expected: $EXPECTED_SHA, Got: $ACTUAL_SHA"
+              echo "Hash mismatch! Expected: $EXPECTED_SHA256, Got: $ACTUAL_SHA"
               exit 1
             fi
           else
@@ -47,7 +47,9 @@ jobs:
           sudo apt-get install -y rustup
           rustup default stable
           rustup update
-          cargo install mdbook
+          # TODO: Not dry
+          MDBOOK_VERSION="0.5.1"
+          cargo install mdbook --version ${MDBOOK_VERSION}
 
       - name: Build documentation with mdbook
         run: mdbook build
